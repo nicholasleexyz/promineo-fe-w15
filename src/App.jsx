@@ -1,5 +1,18 @@
 import Entry from "./Entry";
 
+const endpoint =
+  "https://64fbc056605a026163ae0736.mockapi.io/promineo-fe-week-15/asdf";
+
+const data = await fetch(endpoint).then((response) => response.json());
+console.log(data);
+
+// useEffect(() => {
+//   fetch(
+//     `${baseUrl}apikey=${apikey}&i=${movies.Search[currentMovieIndex].imdbID}`
+//   )
+//     .then((response) => response.json())
+//     .then((data) => setCurrentMovieData(data));
+// }, [currentMovieIndex]);
 function App() {
   return (
     <div className="content-wrapper">
