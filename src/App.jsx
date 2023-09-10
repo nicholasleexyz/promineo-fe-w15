@@ -1,8 +1,6 @@
 import Entry from "./Entry";
 
-const endpoint =
-  "https://64fbc056605a026163ae0736.mockapi.io/promineo-fe-week-15/asdf";
-
+const endpoint = "https://64d5c8e3613ee4426d9799bd.mockapi.io/promineo/users";
 const data = await fetch(endpoint).then((response) => response.json());
 console.log(data);
 
@@ -13,23 +11,44 @@ console.log(data);
 //     .then((response) => response.json())
 //     .then((data) => setCurrentMovieData(data));
 // }, [currentMovieIndex]);
+
 function App() {
   return (
-    <div className="content-wrapper">
-      <div className="content">
-        <button className="grid-item">Create</button>
-        <button className="grid-item">Read</button>
-
-        <button className="grid-item">Update</button>
-        <button className="grid-item">Delete</button>
-
-        {/* 
-          new entry button (create)
-          load button for testing (read)
-
-          read is implicit
-        */}
-        <Entry></Entry>
+    <div className="content">
+      <div className="new-entry-wrapper">
+        <div className="new-entry">
+          <div className="iput">
+            <label className="" htmlFor="">
+              User:{" "}
+            </label>
+            <input className="" type="text" name="" id="" />
+          </div>
+          <div className="iput">
+            <label className="" htmlFor="">
+              Full Name:{" "}
+            </label>
+            <input className="" type="text" name="" id="" />
+          </div>
+          <div className="iput">
+            <label className="" htmlFor="">
+              Email:{" "}
+            </label>
+            <input className="" type="text" name="" id="" />
+          </div>
+          <button className="btn btn-new">New</button>
+        </div>
+      </div>
+      <div className="entry-container">
+        {data.map((d, i) => (
+          <Entry
+            key={i}
+            user={d.user}
+            email={d.email}
+            fullName={d.name}
+            imgAvatar={d.avatar}
+            index={d.id}
+          ></Entry>
+        ))}
       </div>
     </div>
   );
