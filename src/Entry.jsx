@@ -22,15 +22,18 @@ function Entry({ user, email, fullName, imgAvatar, index }) {
     } else if (edit === true) {
       console.log("Editing at index: " + idx);
 
-      setCurrentUser("asdf");
-      setCurrentFullName("jkl");
-      setCurrentEmail("qwerty");
+      const desiredUser = "asdf";
+      const desiredFullName = "jkl";
+      const desiredEmail = "qwerty";
 
-      console.log(currentUser);
+      setCurrentUser(desiredUser);
+      setCurrentFullName(desiredFullName);
+      setCurrentEmail(desiredEmail);
+
       const body = JSON.stringify({
-        user: currentUser,
-        name: currentFullName,
-        email: currentEmail,
+        user: desiredUser,
+        name: desiredFullName,
+        email: desiredEmail,
       });
 
       const requestOptions = {

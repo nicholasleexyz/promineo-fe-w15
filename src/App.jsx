@@ -3,7 +3,6 @@ import Entry from "./Entry";
 
 const endpoint = "https://64d5c8e3613ee4426d9799bd.mockapi.io/promineo/users";
 const data = await fetch(endpoint).then((response) => response.json());
-console.log(data);
 
 // useEffect(() => {
 //   fetch(
@@ -15,41 +14,56 @@ console.log(data);
 
 function App() {
   const [currentData, setCurrentData] = useState(data);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [post, setPost] = useState(false);
 
   const inputUser = useRef(null);
   const inputFullName = useRef(null);
   const inputEmail = useRef(null);
 
-  useEffect(() => {
-    if (post === true) {
-      const body = JSON.stringify({
-        user: inputUser.current.value,
-        name: inputFullName.current.value,
-        email: inputEmail.current.value,
+  const f = async () =>
+    await fetch(endpoint)
+      .then((response) => response.json())
+      .then((data) => {
+        setCurrentData(data);
+        setIsLoaded(false);
       });
-      const requestOptions = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: body,
-      };
+
+  useEffect(() => {
+    if (post) {
       const postFunc = async () => {
+        const body = JSON.stringify({
+          user: inputUser.current.value,
+          name: inputFullName.current.value,
+          email: inputEmail.current.value,
+        });
+
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: body,
+        };
+
         await fetch(
           "https://64d5c8e3613ee4426d9799bd.mockapi.io/promineo/users/",
           requestOptions
         );
 
-        setCurrentData(
-          await fetch(endpoint).then((response) => response.json())
-        );
         inputUser.current.value = "";
         inputFullName.current.value = "";
         inputEmail.current.value = "";
       };
+
       postFunc();
       setPost(false);
+      setIsLoaded(true);
     }
   }, [post]);
+
+  useEffect(() => {
+    // console.log(currentData);
+    f();
+  }, [isLoaded]);
 
   return (
     <div className="content">
