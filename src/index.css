@@ -1,15 +1,23 @@
+:root {
+    --gap-min: 0.1rem;
+    --gap-mid: 0.25rem;
+    --gap-max: 0.5rem;
+    --radius-border: 1rem;
+    --color-border: black;
+}
+
 .content-entries{
     display: grid;
     grid-template-columns: 1fr;
     overflow-y: scroll;
-    gap: 0.25rem;
+    gap: var(--gap-mid);
     background-color: darkslateblue;
 }
 
 .entry {
-    margin-inline: 0.25rem;
+    margin-inline: var(--gap-mid);
     /* outline: solid black 0.25rem; */
-    border: solid black 0.1rem;
+    border: solid var(--color-border) var(--gap-min);
     /* border-bottom: solid gray .1rem; */
     height: 100px;
     text-align: center;
@@ -25,10 +33,10 @@
 }
 
 .content-info {
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
+    width: calc(100% - (var(--gap-max) * 2));
+    height: calc(100% - (var(--gap-max) * 2));
     margin: auto;
-    background-color: green;
-    border: solid black 0.1rem;
-    border-radius: 1rem;
+    /* background-color: green; */
+    border: solid var(--color-border) var(--gap-min);
+    border-radius: var(--radius-border);
 }
