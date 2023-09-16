@@ -30,7 +30,7 @@ export default function App() {
       >
         <div className="content">
           <ContentInfo></ContentInfo>
-          <ContentEntries userData={userData}></ContentEntries>
+          <ContentEntries></ContentEntries>
         </div>
       </currentUserIndexContext.Provider>
     </userDataContext.Provider>
