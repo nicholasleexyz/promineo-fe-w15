@@ -2,7 +2,7 @@ import Entry from "./Entry";
 import PropTypes from "prop-types";
 
 export default function ContentEntries({ userData }) {
-  if (!userData) {
+  if (!userData || userData.length == 0) {
     return <span>LOADING...</span>;
   }
 
