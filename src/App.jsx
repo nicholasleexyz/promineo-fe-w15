@@ -4,6 +4,7 @@ import ContentEntries from "./ContentEntries";
 
 export default function App() {
   const [userData, setUserData] = useState([]);
+  const [indexUserCurrent, setIndexUserCurrent] = useState(0);
 
   //READ
   async function getUserData() {
@@ -33,7 +34,11 @@ export default function App() {
   return (
     <div className="content">
       <ContentInfo></ContentInfo>
-      <ContentEntries userData={userData}></ContentEntries>
+      <ContentEntries
+        userData={userData}
+        setIndexUserCurrent={setIndexUserCurrent}
+        indexUserCurrent={indexUserCurrent}
+      ></ContentEntries>
     </div>
   );
 }

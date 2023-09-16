@@ -1,7 +1,7 @@
 export default function ContentInfo() {
   return (
     <div className="content-info">
-      {/* <p>
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque dolorum
         laboriosam, rerum saepe aliquid sit nihil. Sit assumenda quos eum eaque!
         Vel distinctio quidem, officiis fuga optio ea eaque omnis!
@@ -16,7 +16,7 @@ export default function ContentInfo() {
         earum asperiores pariatur ipsa a porro! Molestias qui quaerat excepturi
         consequatur nulla eaque, voluptates delectus, corporis cumque fugiat
         tempore perspiciatis reprehenderit incidunt aspernatur illo nostrum?
-      </p> */}
+      </p>
     </div>
   );
 }
