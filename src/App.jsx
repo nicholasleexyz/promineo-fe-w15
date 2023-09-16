@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <div className="content">
-      <ContentInfo></ContentInfo>
+      <ContentInfo user={userData[indexUserCurrent]}></ContentInfo>
       <ContentEntries
         userData={userData}
         setIndexUserCurrent={setIndexUserCurrent}

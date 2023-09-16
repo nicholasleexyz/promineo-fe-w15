@@ -12,7 +12,7 @@ export default function Entry({
       className={(index == indexUserCurrent ? "entry-current " : "") + "entry"}
       onClick={() => {
         clickCallback();
-        console.log("asdf");
+        // console.log("asdf");
       }}
     >
       <img src={avatar}></img>
@@ -24,4 +24,7 @@ export default function Entry({
 Entry.propTypes = {
   user: PropTypes.string,
   avatar: PropTypes.string,
+  clickCallback: PropTypes.func,
+  indexUserCurrent: PropTypes.number,
+  index: PropTypes.number,
 };
