@@ -1,11 +1,11 @@
 import Entry from "./Entry";
-import PropTypes from "prop-types";
+import { useContext } from "react";
+import { userDataContext, currentUserIndexContext } from "./Contexts";
 
-export default function ContentEntries({
-  userData,
-  setIndexUserCurrent,
-  indexUserCurrent,
-}) {
+export default function ContentEntries() {
+  const [currentUserIndex] = useContext(currentUserIndexContext);
+  const [userData] = useContext(userDataContext);
+
   if (!userData || userData.length == 0) {
     return <span>LOADING...</span>;
   }
@@ -18,19 +18,11 @@ export default function ContentEntries({
             key={elem.id}
             user={elem.user}
             avatar={elem.avatar}
-            clickCallback={() => setIndexUserCurrent(i)}
-            indexUserCurrent={indexUserCurrent}
             index={i}
-            className={i == indexUserCurrent ? "entry-current" : ""}
+            className={i == currentUserIndex ? "entry-current" : ""}
           ></Entry>
         );
       })}
     </div>
   );
 }
-
-ContentEntries.propTypes = {
-  userData: PropTypes.arrayOf(PropTypes.object),
-  setIndexUserCurrent: PropTypes.func,
-  indexUserCurrent: PropTypes.number,
-};

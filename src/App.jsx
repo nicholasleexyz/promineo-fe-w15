@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import ContentInfo from "./ContentInfo";
 import ContentEntries from "./ContentEntries";
+import { userDataContext, currentUserIndexContext } from "./Contexts";
+
+// use context
 
 export default function App() {
+  const [currentUserIndex, setCurrentUserIndex] = useState(0);
   const [userData, setUserData] = useState([]);
-  const [indexUserCurrent, setIndexUserCurrent] = useState(0);
 
   //READ
-  async function getUserData() {
+  async function readUserData() {
     const endpoint =
       "https://64d5c8e3613ee4426d9799bd.mockapi.io/promineo/users";
 
@@ -23,7 +26,7 @@ export default function App() {
   //CREATE (POST)
 
   useEffect(() => {
-    getUserData();
+    readUserData();
     return () => {};
   }, []);
 
@@ -32,13 +35,15 @@ export default function App() {
   // }, [userData]);
 
   return (
-    <div className="content">
-      <ContentInfo user={userData[indexUserCurrent]}></ContentInfo>
-      <ContentEntries
-        userData={userData}
-        setIndexUserCurrent={setIndexUserCurrent}
-        indexUserCurrent={indexUserCurrent}
-      ></ContentEntries>
-    </div>
+    <userDataContext.Provider value={[userData, setUserData]}>
+      <currentUserIndexContext.Provider
+        value={[currentUserIndex, setCurrentUserIndex]}
+      >
+        <div className="content">
+          <ContentInfo></ContentInfo>
+          <ContentEntries userData={userData}></ContentEntries>
+        </div>
+      </currentUserIndexContext.Provider>
+    </userDataContext.Provider>
   );
 }
