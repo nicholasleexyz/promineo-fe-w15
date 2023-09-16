@@ -1,3 +1,6 @@
+html{
+    color-scheme: dark;
+}
 :root {
     --gap-min: 0.1rem;
     --gap-mid: 0.25rem;
@@ -56,10 +59,27 @@
 }
 
 .content-info {
+    display: grid;
+    justify-content: center;
+    align-items:center;
+
     width: calc(100% - (var(--gap-max) * 2));
     height: calc(100% - (var(--gap-max) * 2));
     margin: auto;
     border: solid var(--color-border) var(--gap-min);
     border-radius: var(--radius-border);
-    background-color: green;
+    /* background-color: green; */
+}
+
+.content-info-edit{
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    width: 500px;
+    justify-content: center;
+    text-align: start;
+}
+.content-info-edit-wrapper{
+    height: fit-content;
+    width: fit-content;
+    /* background-color: red; */
 }
