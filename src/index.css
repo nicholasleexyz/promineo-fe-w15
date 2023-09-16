@@ -1,6 +1,7 @@
 html{
     color-scheme: dark;
 }
+
 :root {
     --gap-min: 0.1rem;
     --gap-mid: 0.25rem;
@@ -16,8 +17,6 @@ html{
     gap: var(--gap-mid);
     background-color: darkslateblue;
 }
-
-
 
 .entry {
     display: flex;
