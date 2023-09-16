@@ -1,8 +1,15 @@
-# React + Vite
+# Week 15 Coding Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Used vite instead of create-react-app so running the project is slightly different but not by much.
 
-Currently, two official plugins are available:
+Installing dependencies:
+```
+npm i
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Running the project:
+```
+npm run dev
+```
+
+Then press 'o' to open in browser. 
