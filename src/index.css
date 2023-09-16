@@ -68,6 +68,7 @@ html{
     margin: auto;
     border: solid var(--color-border) var(--gap-min);
     border-radius: var(--radius-border);
+    background-color: steelblue;
     /* background-color: green; */
 }
 

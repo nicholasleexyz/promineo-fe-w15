@@ -28,9 +28,10 @@ export default function ContentInfo() {
     await fetch(endpoint, { method: "DELETE" });
     const read = await fetch(
       "https://64d5c8e3613ee4426d9799bd.mockapi.io/promineo/users"
-    ).then((res) => res.json());
+    )
+      .then((res) => res.json())
+      .then((dat) => dat);
 
-    console.log(currentUserIndex);
     setUserData(read);
   }
 
@@ -46,9 +47,8 @@ export default function ContentInfo() {
       body: JSON.stringify(newData),
     };
 
-    await fetch(endpoint, requestOptions)
-      .then((res) => res.json())
-      .then((dat) => dat);
+    await fetch(endpoint, requestOptions);
+    // .then((res) => res.json());
 
     const read = await fetch(
       "https://64d5c8e3613ee4426d9799bd.mockapi.io/promineo/users"
